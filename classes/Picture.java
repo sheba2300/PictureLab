@@ -97,7 +97,74 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  public void keepOnlyBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  public void keepOnlyRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  public void keepOnlyGreen()
+{
+  Pixel[][] pixels = this.getPixels2D();
+  for (Pixel[] rowArray : pixels)
+  {
+    for (Pixel pixelObj : rowArray)
+    {
+      pixelObj.setRed(0);
+      pixelObj.setBlue(0);
+    }
+  }
+}
+  public void negate() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        pixelObj.setBlue(255-pixelObj.getBlue());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setRed(255-pixelObj.getRed());
+      }
+    }
+  }
+
+  public void grayscale()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int avg = ((pixelObj.getBlue() + pixelObj.getGreen() + pixelObj.getRed())/3);
+
+        pixelObj.setBlue(avg);
+        pixelObj.setGreen(avg);
+        pixelObj.setRed(avg);
+      }
+    }
+  }
+
+  public void fixUnderwater()
+  {
+
+  }
+
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -216,17 +283,19 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
-  
+
+
+
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
     Picture beach = new Picture("beach.jpg");
+    beach.keepOnlyBlue();
     beach.explore();
-    beach.zeroBlue();
     beach.explore();
+
   }
   
 } // this } is the end of class Picture, put all new methods before this
