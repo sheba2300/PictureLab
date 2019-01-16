@@ -6,6 +6,7 @@ import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
+
 /**
  * A class that represents a picture.  This class inherits from 
  * SimplePicture and allows the student to add functionality to
@@ -159,11 +160,22 @@ public class Picture extends SimplePicture
       }
     }
   }
-
   public void fixUnderwater()
   {
+    Pixel[][] pixels = this.getPixels2D();
 
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        if(pixelObj.getGreen()>pixelObj.getBlue() && pixelObj.getGreen()>pixelObj.getRed())
+        {
+          pixelObj.setColor(Color.lightGray);
+        }
+      }
+    }
   }
+
 
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture

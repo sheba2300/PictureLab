@@ -23,6 +23,13 @@ public class PictureTester
     gyro.explore();
 
   }
+  public static void testFixUnderwater()
+  {
+    Picture gyro = new Picture("water.jpg");
+    gyro.fixUnderwater();
+    gyro.explore();
+
+  }
 
   public static void testNegate()
   {
@@ -98,8 +105,8 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    testGrayscale();
-    //testFixUnderwater();
+    //testGrayscale();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
