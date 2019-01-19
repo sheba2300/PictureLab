@@ -112,10 +112,18 @@ public class PictureTester
   {
     Picture snow = new Picture("snowman.jpg");
     snow.explore();
-    snow.mirrorTemple();
+    snow.mirrorArms();
     snow.explore();
   }
-  
+
+  public static void testMirrorGull()
+  {
+    Picture gull = new Picture("seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
+
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -136,6 +144,7 @@ public class PictureTester
     * method in Java */
   public static void main(String[] args)
   {
+
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
@@ -151,9 +160,9 @@ public class PictureTester
     //testMirrorHorizontal();
     //testMirrorHorizontalBotToTop();\
     //testMirrorDiagonal();
-    //testMirrorTemple();
-    testMirrorArms();
-    //testMirrorGull();
+    testMirrorTemple();
+    //testMirrorArms();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
